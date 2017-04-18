@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<title>GalavanizeWorkshopExercise</title>
+
+</head>
+<body>
+<script>
+var cakes = 5;
+var slicesPerCake = 6;
+var attendees = 600;
+var bakers = 3;
+var cakeBakingTime = 1;
+var hoursLeftUntilParty = 5;
+var enoughSlicesNow;
+var slicesNeeded;
+var cakesWeCanBake;
+var finalSliceCount;
+var extraSlices;
+var Liza;
+var extraFew = " extra";
+//start with 5 cakes
+`
+//Add comparison operators below:
+enoughSlicesNow = cakes *slicesPerCake;
+
+ 
+if (enoughSlicesNow <attendees){
+  slicesNeeded = attendees - enoughSlicesNow;
+} 
+else if(enoughSlicesNow >=attendees){
+  slicesNeeded = 0;
+}
+
+
+
+cakesWeCanBake = bakers *cakeBakingTime *hoursLeftUntilParty;
+finalSliceCount = 30+ (6*cakesWeCanBake);
+console.log (finalSliceCount);
+extraSlices = finalSliceCount -attendees;
+
+
+
+if (extraSlices <0){
+  extraSlices =  + Math.abs(extraSlices);
+  extraFew = "too few";
+  
+  
+} else if (extraSlices === 0){
+  extraSlices = "no"
+} 
+//change number of attendees to make Liza say different things. 
+Liza = "We will have " + extraSlices + extraFew + " slices.";
+
+console.log (Liza);
+
+</script>
+
+</body>
+</html>
+
+
+
+
