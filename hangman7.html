@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+
+    var guess;//single character string
+      var guessedLetters = [];
+      var tally = 0;//single number. set to zero at beginning of each round of checking guess
+      var wrongGuess = 0;
+      var again;
+      var wordList = ["xerox", "rabbit", "aardvark", "random", "jacket", "koala", "habitual", "sclerotic","jubilation","crepuscular", "semiotic"];
+      //Need to choose secretWord and split into an array.
+      var secretWord;//use for congrats msg
+      var secretWordArray = [];//array to be checked against guess
+      var blankArray = [];//array of underscores to be filled in w/ letters from secretWordArray
+      //create blankArray to be filled in with var guess
+
+      function welcome(wordList){
+        blankArray =[];
+        secretWord = wordList[Math.floor(Math.random() * wordList.length)];
+        secretWordArray = secretWord.split("");
+        console.log(secretWordArray);
+
+        for (l=0; l<secretWordArray.length;l++){
+           blankArray.push("_ ");
+         }
+          console.log(blankArray);
+          wrongGuess =0;
+          again = null;
+          //wrongGuess needs to be reset every time game is played
+          again
+          gameLoop(secretWordArray, blankArray);
+          return;
+
+      }//end welcome
+
+      /*-----------------------------------------------------------------*/
+      function gameLoop(secretWordArray, blankArray){
+    		tally = 0;
+    		//tally needs to be reset before every new guess.
+        var guess = prompt("Please guess a single letter or hit cancel to end.");
+        guess.toLowerCase();
+        if (guess===null||guess.length!==1){
+          guess= null;
+        	guess = prompt("Please guess a single letter or hit cancel to end.");
+        		//how do I handle repeated user failure to enter proper guess?
+        }else if (guess.length === 1){
+          guessedLetters.push(guess);
+          console.log("guessed letters: "+ guessedLetters );
+
+          for(j=0; j<secretWordArray.length; j++){
+
+              if(guess===secretWordArray[j]){
+                blankArray.splice(j,1, secretWordArray[j]);
+                console.log(blankArray);
+                tally++;
+                console.log("tally inside guess-matching if statement: " + tally);
+                //tally++ this counts the instances of the guess in secretWordArray
+              }//end of if-loop
+            }//end of for-loop
+          }//end of guess length if-statement
+          console.log("tally end of gameloop function: " + tally);
+
+         if(tally === 0){
+            wrongGuess++;
+            console.log("Wrong Guesses: " + wrongGuess );
+
+         }
+         checkBlanks();
+        }//end of gameLoop function
+        /*---------------------------------------------------------------------------*/
+    function checkBlanks(){
+
+      if (blankArray.indexOf("_ ") >= 0){
+        if (wrongGuess === 3){
+          youLost();
+          return;
+        }
+        gameLoop(secretWordArray,blankArray);
+      }
+
+      else{
+        youWon();
+      }
+    }//end of checkBlanks fn
+    /*--------------------------------------------------------------------------*/
+    function youWon(){
+      alert("you won. The secret word was " + secretWord);
+      var again = confirm("Click OK if you want to play again and cancel to end");
+      if (again ===true){
+      	welcome(wordList);
+      }else{
+      	alert("goodbye!");
+      	return;
+      }
+    }
+      /*--------------------------------------------------------------------------*/
+    function youLost(){
+        alert("you lost. The secret word was " + secretWord);
+        var again = confirm("Click OK if you want to play again and cancel to end");
+      if (again === true){
+        welcome(wordList);
+      }else{
+        alert("goodbye!");
+        return;
+      }
+    }
+
+
+    /*--------------------------------------------------------------------------*/
+      welcome(wordList);
+
+
+
+    </script>
+  </body>
+</html>

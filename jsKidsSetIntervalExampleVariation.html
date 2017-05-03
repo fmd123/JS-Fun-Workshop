@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS Kids chapter 10 setInterval example</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  </head>
+  <body>
+<p id = "clicker">click me</p>
+
+<script>
+
+
+var counter = 1;
+var printMessage = function () {
+  console.log(" You have been staring at your console for " + counter + " seconds");
+counter++;
+console.log(intervalId);
+};
+
+var intervalId = setInterval( printMessage, 1000);
+
+
+
+/*
+ $("#go").click(function(){
+   setInterval(printMessage, 4000);
+ });
+
+/*
+
+
+
+Morgan, Nick (2014-12-02). JavaScript for Kids: A Playful Introduction to Programming (p. 158). No Starch Press. Kindle Edition.
+*/
+
+</script>
+
+
+  </body>
+</html>

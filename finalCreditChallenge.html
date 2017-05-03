@@ -20,14 +20,14 @@ function creditChallenge(arr){
 	for (i=0; i<creditCardArray.length; i++){
 		var concat='';//each time move on to a new element in creditCardArray need to reset concat
 		noDashNumArray = creditCardArray[i].split("-");
-		//console.log(noDashNumArray);
+		console.log("noDashNumArray: " + noDashNumArray);
 		for (j=0;j<noDashNumArray.length;j++){
 			concat += noDashNumArray[j];
 			}
 			concatArray.push(concat);
 			}//for loop end
 
-			console.log ("credit card numbers without dashes: " + concatArray);
+			console.log ("concatArray: " + concatArray);
 			//concatArray is an array of credit card strings without dashes
 
 
@@ -36,27 +36,15 @@ function creditChallenge(arr){
 	for (k=0; k<concatArray.length; k++){
 		var sum = 0;
 		for(l=0; l<concatArray[k].length;l++){
-			sum +=concatArray[k][l];
+			sum +=parseInt(concatArray[k][l],10);
 		}
 		sumArray.push(sum);
 	}//end of k for-loop
 
-//console.log(sumArray);
+  console.log("sumArray: " + sumArray);
 
-	for (m=0; m<sumArray.length;m++ ){
-		sum =0;
-		for (n=0; n<sumArray[m].length;n++){
-
-		sum +=parseInt(sumArray[m][n], 10);
-
-		}
-		highestArray.push(sum);
-	}
-
-	console.log("sums of each credit card number: " + highestArray);
-
-	for (p = 0; p<highestArray.length; p++){
-			if (highestArray[p+1] > highestArray[p]|| highestArray[p+1] == highestArray[p]) {
+	for (p = 0; p<sumArray.length; p++){
+			if (sumArray[p+1] > sumArray[p]|| sumArray[p+1] == sumArray[p]) {
 				highest = creditCardArray[p+1]
 
 			}
