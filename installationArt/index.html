@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Installation Art project</title>
+
+<script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous">
+</script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+<style>
+.navbar-header{
+  background-color: lightsteelblue,
+};
+
+.clickable{
+
+};
+</style>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default" >
+  <div class="container-fluid">
+    <div class="navbar-header" id= "top">
+      <a class="navbar-brand" href="#"><h4>Installation Art</h4></a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <a href="about.html">
+          <span class="glyphicon glyphicon-home"></span>
+        </a></li>
+    </ul><!--this is clickable navigation (nav navbar-nav)-->
+  </div>
+</nav>
+
+
+    <div class = "container-fluid">
+
+      <div class = "row">
+        <div class = "col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-body" id = "side">
+
+              <!--<h4>use jQuery and later JSON to fill in ul element</h4>
+              <ul>
+                <li>use jQuery to create li elements:</li>
+                <li>Transarquitetônica -use: https://www.demilked.com/wood-tunnels-art-installation-henrique-oliveira-transarquitetonica/</li>
+                <li>Cloudscape -https://www.dezeen.com/2013/08/08/cloudscapes-at-mot-by-tetsuo-kondo-architects-and-transsolar/</li>
+                <li>Lightening Field -http://diaart.org/visit/visit/walter-de-maria-the-lightning-field</li>
+                <li>Intersections -http://www.ricegallery.org/anila-agha/</li>
+              </ul>-->
+            </div>
+              </div>
+
+        </div>
+
+
+        <div class = "col-md-8">
+
+          <div class="panel panel-default">
+            <div class="panel-body" id = "bigImg">
+              <h4>master detail panel shows image, title, artist, description, link all from an object</h4>
+
+            </div>
+          </div>
+        </div>
+
+      </div> <!--end of row-->
+
+
+
+
+
+
+
+
+
+
+
+
+</div> <!--end of container-fluid-->
+    <script>
+    /*I want to use JSON but for now I have an array of JS objects..*/
+    artList[
+      {
+        title: "Obliteration Room",
+        artist:"Yayoi Kusama",
+        image: "http://placehold.it/400x200"/*use my own photo*/,
+        description:"lorem ipsem... ",
+        link:"http://www.yayoi-kusama.jp/e/information/",
+        location: /*do this later*/
+      }
+      {
+        title:"Transarquitetônica",
+        artist:"Henrique Oliveira",
+        image:"http://placehold.it/400x200",
+        description:"blah blah blah",
+        link:"https://www.demilked.com/wood-tunnels-art-installation-henrique-oliveira-transarquitetonica/",
+        location: /*do this later*/
+      };
+      {
+        title:"Cloudscape",
+        artist:"Tetsuo Kondo Architects"
+        image:"http://placehold.it/400x200"
+        description:"Layers of air with differing properties of temperature and humidity create a cloud inside a room"
+        link: "https://www.dezeen.com/2013/08/08/cloudscapes-at-mot-by-tetsuo-kondo-architects-and-transsolar/"
+        location: /*do this later*/
+      };
+      {
+        title:"Lightening Field"
+        artist:"Walter de Maria"
+        image:"http://placehold.it/400x200"
+        description:"a field of lightening rods. Guests can stay overnight to watch lightening strike"
+        link:"http://diaart.org/visit/visit/walter-de-maria-the-lightning-field"
+        location: /*do this later*/
+      };
+      {
+        title:"Intersections"
+        artist:"Anila-Agha"
+        image:"http://placehold.it/400x200"
+        description:"Beautiful"
+        link:"http://www.ricegallery.org/anila-agha/"
+        location: /*do this later*/
+      };
+
+    ];
+    $(document).ready(function()){
+      var item;
+      function makeOneDiv(obj){
+        item = $('<div>something here</div>').appendTo('#side');
+        item.addClass("clickable");
+
+        return item;
+      }//end of makeOneDiv
+
+  for (i=0; i<artList.length; i++){
+    makeOneDiv(artList[i]);
+  }//end of for-loop
+
+});//end of jQuery
+    </script>
+
+  </body>
+</html>
