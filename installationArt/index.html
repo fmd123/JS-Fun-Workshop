@@ -93,51 +93,52 @@
 
 
 </div> <!--end of container-fluid-->
+
     <script>
     /*I want to use JSON but for now I have an array of JS objects..*/
-    artList[
+    var artList =[
       {
         title: "Obliteration Room",
         artist:"Yayoi Kusama",
         image: "http://placehold.it/400x200"/*use my own photo*/,
         description:"lorem ipsem... ",
         link:"http://www.yayoi-kusama.jp/e/information/",
-        location: /*do this later*/
-      }
+        location: "do this later",
+      },
       {
         title:"Transarquitetônica",
         artist:"Henrique Oliveira",
         image:"http://placehold.it/400x200",
         description:"blah blah blah",
         link:"https://www.demilked.com/wood-tunnels-art-installation-henrique-oliveira-transarquitetonica/",
-        location: /*do this later*/
-      };
+        location: "do this later",
+      },
       {
         title:"Cloudscape",
         artist:"Tetsuo Kondo Architects"
         image:"http://placehold.it/400x200"
         description:"Layers of air with differing properties of temperature and humidity create a cloud inside a room"
         link: "https://www.dezeen.com/2013/08/08/cloudscapes-at-mot-by-tetsuo-kondo-architects-and-transsolar/"
-        location: /*do this later*/
-      };
+        location: "do this later",
+      },
       {
         title:"Lightening Field"
         artist:"Walter de Maria"
         image:"http://placehold.it/400x200"
         description:"a field of lightening rods. Guests can stay overnight to watch lightening strike"
         link:"http://diaart.org/visit/visit/walter-de-maria-the-lightning-field"
-        location: /*do this later*/
-      };
+        location: "do this later",
+      },
       {
         title:"Intersections"
         artist:"Anila-Agha"
         image:"http://placehold.it/400x200"
         description:"Beautiful"
         link:"http://www.ricegallery.org/anila-agha/"
-        location: /*do this later*/
-      };
+        location: "do this later",
+      },
 
-    ];
+    ]
     $(document).ready(function(){
       var item;
       function makeOneDiv(obj){
