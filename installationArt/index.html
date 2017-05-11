@@ -30,6 +30,7 @@
       border-radius: 4px;
       padding: 5px;
       width: 150px;
+      color: blue;
     }
 
     thumbNail:hover {
@@ -76,8 +77,10 @@
       <div class="col-md-8">
 
         <div class="panel panel-default">
-          <div class="panel-body" id="bigImg">
-            <h4>master detail panel shows image, title, artist, description, link all from an object</h4>
+          <div class="panel-body" >
+            <div id = "putItHere">
+              <p>div id = "putItHere"</p>
+            </div>
 
           </div>
         </div>
@@ -138,17 +141,28 @@
 
     $(document).ready(function() {
       var item;
+      var id;
+      var itemId;
       var thumbNail;
       var itemTitle;
       var detailItem;
+      var detailTitle;
+
 
 
 /*------------------------------------------------------------*/
+var makeMasterDetail = function( event){
+        //how do I reset this so I only show one item at a time?
+        alert ("makeMasterDetail");
 
-      var makeMasterDetail = function(event){
-        alert ("clicked");
-        detailItem = $('<div>?</div>').appendTo('#bigImg');
-        //var detailTitle = $('<h4>' + artList[i].title + '</h4>').appendTo(detailItem);
+        console.log(event.target);
+        // var index = event.attr('data-id');
+        //console.log (index);
+        console.log(artList[index].title);
+        detailItem = $('<div>x</div>').appendTo('#putItHere');
+        //detailTitle = $('<h4>' + artList[index].title + '</h4>').appendTo(detailItem);
+        //var detailImg = $('<img src = "'+ artList[i].image + '">').appendTo(detailItem);
+
 
 
 
@@ -157,29 +171,44 @@
 
 /*-------------------------------------------------------------*/
       var clickHandler = function(event) {
+        console.log("clickHandler");
+        makeMasterDetail( event);
 
-        makeMasterDetail(event);
+
       }
 
       $(".clickable").click(clickHandler);
 
 /*-----------------------------------------------------------------*/
       function makeOneDiv(obj) {
+
         item = $('<div></div>')
         .appendTo('#side')
-        .click(function() {
-          clickHandler();
-        });
-        //item.addClass("clickable").attr('data-id, i');
+        .click(function(event) {
+          clickHandler(event);
+        });//end of anonymous fn for clickhandler
 
 
+        $(item).attr("data-id", i);
+        console.log('i', i);
+        console.log("makeOneDiv: " + $(item).attr('data-id'));
 
 
-
+        //these vars below are for immediate use -put into item divs inside the side panel
         thumbNail = $('<img src = "' + obj.image + '"style="width:150px">').appendTo(item);
         itemTitle = $('<h4>' + obj.title + '</h4>').appendTo(item);
 
 
+/*
+        var bigItem = $('<div></div>').appendTo(item).hide();
+        //each bigItem will be appended to bigImg div when item div is clicked
+        var bigImg = $('<img src = "' + obj.image + '">').appendTo(bigItem);
+        var bigTitle = $('<h4>' + obj.title + '</h4>').appendTo(bigItem);
+        var bigArtist = $('<h4>' + obj.artist + '</h4>').appendTo(bigItem);
+        var bigDescrip = $('<p>' + obj.description + '</p>').appendTo(bigItem);
+        var bigLink = $('<p>' + obj.link + '</p>').appendTo(bigItem);
+
+*/
 
         return item;
       } //end of makeOneDiv
